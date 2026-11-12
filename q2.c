@@ -1,0 +1,47 @@
+
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+
+    char names[10][50];
+    char temp[50];
+
+    // Input student names
+    printf("Enter names of 10 students:\n");
+
+    for (int i = 0; i < 10; i++) {
+
+        printf("Enter name %d: ", i + 1);
+
+        scanf(" %49[^\n]", names[i]);
+    }
+
+    // Sorting using bubble sort
+    for (int i = 0; i < 9; i++) {
+
+        for (int j = 0; j < 9 - i; j++) {
+
+            if (strcmp(names[j], names[j + 1]) > 0) {
+
+                // Swap names using strcpy
+
+                strcpy(temp, names[j]);
+
+                strcpy(names[j], names[j + 1]);
+
+                strcpy(names[j + 1], temp);
+            }
+        }
+    }
+
+    // Display sorted names
+    printf("\n====== SORTED STUDENT NAMES ======\n");
+
+    for (int i = 0; i < 10; i++) {
+
+        printf("%d. %s\n", i + 1, names[i]);
+    }
+
+    return 0;
+}
